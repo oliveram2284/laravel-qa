@@ -11975,3 +11975,7 @@ a.text-dark:focus {
   margin-top: 10px;
 }
 
+.counters form.form-delete {
+  display: inline;
+}
+
