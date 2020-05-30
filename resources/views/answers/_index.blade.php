@@ -15,7 +15,7 @@
                             <a href="" title="This answer es useful" class="vote-up">
                                 <i class="fa fa-caret-up fa-2x"></i>
                             </a>
-                            <span class="votes-count">1240</span>
+                            <span class="votes-count">1230</span>
                             <a title="This answer is not usefull " class="vote-down off">
                                 <i class="fa fa-caret-down fa-2x"></i>
                             </a>
