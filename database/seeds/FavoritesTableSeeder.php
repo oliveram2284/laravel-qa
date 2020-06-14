@@ -12,7 +12,7 @@ class FavoritesTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('favorites')->delete();
+        \DB::table('favorites')->truncate();
         $users= User::pluck('id')->all();
         $numberOfUsers = count($users);
         foreach(Question::all() as $question){

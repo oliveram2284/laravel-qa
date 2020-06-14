@@ -11,9 +11,9 @@ class UsersQuestionsAnswersTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('users')->delete();
-        \DB::table('answers')->delete();
-        \DB::table('questions')->delete();
+        \DB::table('users')->truncate();
+        \DB::table('answers')->truncate();
+        \DB::table('questions')->truncate();
         factory(App\User::class,10)->create()->each(function($u){
             $u->questions()
             ->saveMany(
