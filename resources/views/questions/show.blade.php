@@ -19,7 +19,7 @@
                     </div>
                     <hr>
                     <div class="media">
-                        @include('shared._vote',[
+                        @include ('shared._vote', [
                             'model' => $question
                         ])
                         <div class="media-body pl-5 pr-5">
