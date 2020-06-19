@@ -51,7 +51,7 @@ class Question extends Model
     }
 
     public function answers(){
-        return $this->hasMany(Answer::class)->orderBy('votes_count','DESC');
+        return $this->hasMany(Answer::class);
         
     }
 
@@ -77,6 +77,13 @@ class Question extends Model
         return $this->favorites->count();
     }
 
+    /* public function getVotesCountAttribute(){
+        return $this->votes->count();
+    }
+   
+    public function getAnswersCountAttribute(){
+        return $this->answers->count();
+    }*/
     public function getExcerptAttribute(){
         return $this->excerpt(250);
     }
