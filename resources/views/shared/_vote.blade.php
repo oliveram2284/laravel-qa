@@ -36,11 +36,19 @@
         <input type="hidden" name="vote" value="-1">
     </form>
     
-
+    
     @if ($model instanceof App\Question)
-        @include('shared._favorites',[
-            'model'=>$model
-        ]);
+        <a title="Click to mark as a Favorite {{ $name }} (Click again to undo)" class="favorite mt-2 {{ Auth::guest() ? 'off' :( $model->is_favorited ? 'favorited':'')}}"
+            onclick="event.preventDefault();document.getElementById('favorite-{{ $name }}-{{$model->id}}').submit();"   >
+            <i class="fa fa-star fa-2x"></i> 
+            <span class="favorites-count">2</span>
+        </a>
+        <form id="favorite-{{ $name }}-{{$model->id}}" action="/{{ $firtURISegement }}/{{$model->id}}/favorites" method="POST" style="display:none">
+            @csrf
+            @if ($model->is_favorited)
+                @method('DELETE');
+            @endif
+        </form>
     @elseif ($model instanceof App\Answer)
         @include('shared._accept',[
             'model'=>$model
