@@ -27,6 +27,7 @@
                     'model'=>$answer,
                     'label'=>'answered'
                 ])
+                <user-info :model="{{$answer}}" label='answered'></user-info>
             </div>
         </div>
         
