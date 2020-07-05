@@ -14495,7 +14495,6 @@ window.Vue = __webpack_require__(38);
  */
 
 Vue.component('user-info', __webpack_require__(42));
-Vue.component('Answer', __webpack_require__(45));
 
 var app = new Vue({
   el: '#app'
@@ -49341,51 +49340,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['model', 'label'],
     computed: {
         postDate: function postDate() {
             return this.label + " " + this.model.created_date;
-        }
-    },
-    data: function data() {
-        return {
-            user: this.model.user
-        };
+        },
+        data: function data() {
+            console.log("===> MODEL: %o", this.model);
+            return {
+                user: this.model.user
+            };
+        } /*
+          ,
+          user_url(){
+           return this.model.user.url
+          }*/
+
     }
 });
 
@@ -49402,13 +49374,11 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "media mt-2" }, [
       _c("a", { staticClass: "pr-2", attrs: { href: _vm.user.url } }, [
-        _c("img", { attrs: { src: _vm.user.avatar } })
+        _c("img", { attrs: { src: _vm.user.avatar, alt: "" } })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "media-body mt-1" }, [
-        _c("a", { attrs: { href: _vm.user.url } }, [
-          _vm._v(_vm._s(_vm.user.name))
-        ])
+      _c("div", { staticClass: "media_body mt-1" }, [
+        _c("a", { attrs: { href: _vm.user.url } }, [_vm._v("user.name")])
       ])
     ])
   ])
@@ -49424,103 +49394,8 @@ if (false) {
 }
 
 /***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(13)
-/* script */
-var __vue_script__ = __webpack_require__(46)
-/* template */
-var __vue_template__ = null
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Answer.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3f387496", Component.options)
-  } else {
-    hotAPI.reload("data-v-3f387496", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 46 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['answer'],
-    data: function data() {
-        return {
-            editing: false,
-            body: this.answer.body,
-            bodyHtml: this.answer.body_html,
-            id: this.answer.id,
-            questionId: this.answer.question_id,
-            beforeEditCache: null
-        };
-    },
-
-    methods: {
-        edit: function edit() {
-            this.beforeEditCache = this.body;
-            this.editing = true;
-        },
-        cancel: function cancel() {
-            this.body = this.beforeEditCache;
-            this.editing = false;
-        },
-        update: function update() {
-            var _this = this;
-
-            axios.patch('/questions/' + this.questionId + '/answers/' + this.id, {
-                body: this.body
-            }).then(function (res) {
-                _this.editing = false;
-                _this.bodyHtml = res.data.body_html;
-                alert(res.data.message);
-            }).catch(function (err) {
-                alert(err.response.data.message);
-            });
-        }
-    },
-    computed: {
-        isInvalid: function isInvalid() {
-            return this.body.length < 10;
-        }
-    }
-});
-
-/***/ }),
+/* 45 */,
+/* 46 */,
 /* 47 */
 /***/ (function(module, exports) {
 
