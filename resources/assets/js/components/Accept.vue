@@ -1,6 +1,5 @@
 <template>
-    <div>
-        
+    <div>        
         <a v-if="canAccept" title="Mark this as best answer" 
         :class="classes"
         @click.prevent="create"
